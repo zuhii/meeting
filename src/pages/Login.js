@@ -30,7 +30,7 @@ const BackColor = styled.img`
   background: #f8f8f8;
   z-index: 1;
 `;
-const Login = styled.div`
+const LoginForm = styled.div`
   border-radius: 20px;
   margin: auto;
   z-index: 3;
@@ -80,12 +80,12 @@ const Btn = styled.button`
   box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.1);
 `;
 
-const Main = () => {
+const Login = () => {
   return (
     <Test>
       <MainDiv className="MainDiv">
         <BackColor src={color} style={{ opacity: 0.2 }} />
-        <Login>
+        <LoginForm>
           <Title>Login</Title>
           <SubTitle>반갑습니다 미티에 오신 것을 환영해요!</SubTitle>
           <form style={{ display: "flex", flexDirection: "column" }}>
@@ -96,7 +96,7 @@ const Main = () => {
             <Link href="#">아직 미티의 회원이 아니신가요?</Link>
             <Btn>로그인</Btn>
           </form>
-        </Login>
+        </LoginForm>
       </MainDiv>
     </Test>
   );
