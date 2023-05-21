@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import styled from "styled-components";
 import color from "./../assets/color.png";
-
-function LoginAnser() {}
 
 const Test = styled.div`
   width: 100vw;
@@ -84,28 +81,6 @@ const Btn = styled.button`
 `;
 
 const Main = () => {
-  const [userId, setUserId] = useState("");
-  const [userPw, setUserPw] = useState("");
-
-  const handleOnChange = (params, e) => {
-    params === "id" ? setUserId(e.target.value) : setUserPw(e.target.value);
-  };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const url = `http://50.19.56.144:8080/auth/login`;
-    const data = {
-      email: userId,
-      password: userPw,
-    };
-    const res = await axios.post(url, data, { withCredentials: true });
-    console.log(res);
-    try {
-      //navigate('/admin/answer');
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <Test>
       <MainDiv className="MainDiv">
@@ -113,26 +88,11 @@ const Main = () => {
         <Login>
           <Title>Login</Title>
           <SubTitle>반갑습니다 미티에 오신 것을 환영해요!</SubTitle>
-          <form
-            onSubmit={e => handleSubmit(e)}
-            style={{ display: "flex", flexDirection: "column" }}
-          >
+          <form style={{ display: "flex", flexDirection: "column" }}>
             <Label>ID</Label>
-            <Input
-              type="text"
-              name="userId"
-              onChange={e => {
-                handleOnChange("id", e);
-              }}
-            />
+            <Input type="text" name="userId" />
             <Label>PW</Label>
-            <Input
-              type="text"
-              name="userPw"
-              onChange={e => {
-                handleOnChange("id", e);
-              }}
-            />
+            <Input type="text" name="userPw" />
             <Link href="#">아직 미티의 회원이 아니신가요?</Link>
             <Btn>로그인</Btn>
           </form>
